@@ -18,36 +18,45 @@ public class Ping {
     private String url = "www.xvideos.com";
     private String response = "";
 
-    public Ping( ) {
-    makePing();
+    public Ping() {
+    this.response = whileResponse();
+   
     }
     
     public Ping( String url ) {  
         this.url = url;
-        makePing();
+        this.response = whileResponse();
+        
     }
     
-    private void makePing() {
+    public void makePing() {
          try {
+             
+             this.response = "Cargando";
             Runtime r = Runtime.getRuntime();
             Process p = r.exec("ping "+ this.url);
 
             BufferedReader in = new BufferedReader(new
             InputStreamReader(p.getInputStream()));
-            String inputLine;
+            String inputLine;              
+            this.response = "";
             while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+                //System.out.println(inputLine);
                 this.response += inputLine;
             }
-            in.close();
-
+            in.close();           
+            
         } catch (IOException e) {
-            System.out.println(e);
+            this.response = "Error w883 in Memory Posic. 34567856x32, You don´t may to be in Porn, do other thing cabron:"  +e;
         }
+         
     }
     
     public String showResponse () {
         return this.response;
     }
-    
+       
+    private String whileResponse(){
+        return "Calculando el ping";
+    } 
 }

@@ -25,7 +25,6 @@ public class PingTester {
         // TODO code application logic here
       
         Ping p = new Ping("www.google.com");
-        System.out.println(p.showResponse());
         
                 
     }
